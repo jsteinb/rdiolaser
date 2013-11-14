@@ -52,7 +52,7 @@ def index():
         if key is None:
             i = request.args.get('i', 0)
             key = TRACKS[int(i)]
-        return render_template('index3.html', key=key, index=i, token=token, api_base=API_BASE, 
+        return render_template('index.html', key=key, index=i, token=token, api_base=API_BASE, 
             setToken=('localhost' not in CONF['DOMAIN']),
             debug=int('debug' in request.args),
             domain=CONF['DOMAIN'].split(':')[0])
