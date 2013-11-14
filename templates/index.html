@@ -151,6 +151,23 @@
                 height:100%;
                 width:6%;
             }
+            .search{
+                position:absolute;
+                top:10;
+                left:10;
+                width:180px;
+                height:40px;
+                opacity:0.6;
+                z-index:1050;       
+            }
+            input[type="text"]{
+                background-color:rgb(20,20,20);
+                border-radius:20px;
+                -moz-border-radius:20px;
+                -webkit-border-radius:20px;
+                border:0;
+                color:#c8e;
+            }
         </style>
     </head>
     <body>
@@ -171,6 +188,9 @@
             <div class="viz" data-id="2"></div>
             <div class="viz" data-id="1"></div>
             <div class="viz" data-id="0"></div>
+            <form action="" method="post">
+                <input type="text" class="search" name="query">
+            </form>
         </div>
         <div class="right pull-left">
             <div class="time pull-right"></div>

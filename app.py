@@ -17,6 +17,7 @@ API_BASE = "http://developer.echonest.com/api/v4"
 API_KEY = "Z5BUWFNXJP6NGXADB"
 CONSUMER_KEY = "beb95zvaemkyn5gytq7nused"
 CONSUMER_SECRET = "hX6R5HAMFz"
+REDIRECT_URL = "http://rdiolizer.sandpit.us"
 
 CONF = {'DOMAIN': 'localhost'}
 
@@ -39,8 +40,19 @@ def _get_rdio(cookies):
     else:
         return Rdio(CONSUMER_KEY, CONSUMER_SECRET, {})
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
+    if request.method == "POST":
+        query = request.form.get('query')
+        if query:
+            url = "{0}/song/search?api_key={1}&combined={2}&song_min_hotttnesss=0.5&bucket=tracks&bucket=id:rdio-US&limit=true".format(API_BASE, API_KEY, query)
+            print url
+            r = requests.get(url)
+            print r.json()
+            fid = r.json()['response']['songs'][0]['tracks'][0]['foreign_id'].split(':')[-1]
+            if fid:
+                return redirect('/?key='+fid)
+        
     if 'ot' in request.cookies and 'ots' in request.cookies:
         RDIO = _get_rdio(request.cookies)
         if 'localhost' in CONF['DOMAIN']:
