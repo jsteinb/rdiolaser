@@ -279,6 +279,7 @@
                 $('.vizs').css('background-image', 'url('+track.bigIcon+')');
                 $('#title').html(track.name);
                 $('#artistname').html(track.artist);
+                $('title').text(track.name + ' - ' + track.artist);
             });
 
             Backbone.pubSub.on('playStateChanged', function(state){
