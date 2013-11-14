@@ -1,0 +1,6 @@
+<script type="underscore/template" id="lights-view">
+<% _.each(beats, function(it, key, list){ %>
+    <% var height = (it.duration * 30)+"px"; %>
+    <div class="light<% if(key % 2 === 0){ %> red<% } %> lit" data-id="<%= key %>" style="height:<%= height %>;"></div>
+<% }); %>
+</script>

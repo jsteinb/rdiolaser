@@ -1,0 +1,297 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Overdose - Zomby</title>
+        <!--<script type="text/javascript" src="/static/lib/bootstrap/bootstrap.min.js"></script>-->
+        <link rel="stylesheet" href="/static/assets/bootstrap/css/bootstrap.min.css"></link>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <!--<script src="http://www.rdio.com/api/api.js?helper=/helper/&client_id=cDlz5nZjMtEVQL2ipi095g"></script>-->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
+        <style type="text/css">
+            html,body{margin:0;padding:0}
+            body{
+                width:100%;
+                /*background-color:rgb(20,20,20);*/
+                background-image:url(/static/img/static.gif);
+            }
+            .vizs{
+                background-image:url(/static/img/withlove.jpg);
+                width:80%;
+                height:100%;
+            }
+            .viz{
+                z-index:-1;
+                width:100%;
+                height:10%;
+                background-color:#5E2D79;
+            }
+            .above{
+                display:none;
+                box-shadow:0px 0px 8px #000;
+                opacity:0.95;
+                border-radius:30px;
+                z-index:1020;
+                margin-left:20%;
+                width:40%;
+                height:40%;
+                position:absolute;
+                clear:none;
+                padding:0;
+            }
+            .ab-inner{
+                background-color:rgb(0,0,0);
+                box-shadow:0;
+                margin:0;
+                padding:1%;
+                width:48%;
+                height:48%;
+            }
+            .ab-inner.lit{
+                background-color:#c8e;
+                box-shadow:0px 0px 10px #c8e;
+            }
+            .time{
+                width:3px;
+                height:100%;
+                background-color:#08c;
+                box-shadow:1px 0px 12px #08c;
+            }
+            .right{
+                width:20%;
+                height:100%;
+                background-color:rgb(20,20,20);
+            }
+            .light{
+                height:6%;
+                opacity:0.8;
+                width:100%;
+            }
+            .light.lit{
+                background-color:#c8e;
+                box-shadow:0px 0px 10px #c8e;
+            }
+            .light.lit.blue{
+                background-color:#08c;
+                border:solid 1px #08c;
+                box-shadow:0px 0px 10px #08c;
+            }
+            .light.lit.red{
+                background-color:red;
+                border:solid 1px red;
+                box-shadow:0px 0px 10px red;
+            }
+            .light.lit.yellow{
+                background-color:yellow;
+                border:solid 1px yellow;
+                box-shadow:0px 0px 10px yellow;
+            }
+            .light.lit.green{
+                background-color:rgb(88, 248,77);
+                border:solid 1px rgb(88, 248,77);
+                box-shadow:0px 0px 5px rgb(88, 248,77);
+            }
+            .lights{
+                height:100%;
+                width:33%;
+            }
+            .chroma{
+                background-color:#c8e;
+                border:solid 1px #c8e;
+                box-shadow:0px 0px 10px #c8e;
+            }
+            .chromas{
+                height:100%;
+                width:64%;
+            }
+            .chroma{
+                background-color:#c8e;
+                border:solid 1px #c8e;
+                box-shadow:0px 0px 10px #c8e;
+                height:8%;
+            }
+            .chroma:first-child{
+                margin-top:2%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="vizs pull-left">
+            <div class="viz" data-id="9"></div>
+            <div class="viz" data-id="8"></div>
+            <div class="above">
+                <div class="ab-inner pull-left" data-id="0"></div>
+                <div class="ab-inner pull-left" data-id="1"></div>
+                <div class="ab-inner pull-left" data-id="2"></div>
+                <div class="ab-inner pull-left" data-id="3"></div>
+            </div>
+            <div class="viz" data-id="7"></div>
+            <div class="viz" data-id="6"></div>
+            <div class="viz" data-id="5"></div>
+            <div class="viz" data-id="4"></div>
+            <div class="viz" data-id="3"></div>
+            <div class="viz" data-id="2"></div>
+            <div class="viz" data-id="1"></div>
+            <div class="viz" data-id="0"></div>
+        </div>
+        <div class="right pull-left">
+            <div class="time pull-left"></div>
+            <div class="lights pull-right">
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+            </div>
+            <div class="chromas pull-right">
+               <div class="chroma" data-id="0"></div> 
+               <div class="chroma" data-id="1"></div> 
+               <div class="chroma" data-id="2"></div> 
+               <div class="chroma" data-id="3"></div> 
+               <div class="chroma" data-id="4"></div> 
+               <div class="chroma" data-id="5"></div> 
+               <div class="chroma" data-id="6"></div> 
+               <div class="chroma" data-id="7"></div> 
+               <div class="chroma" data-id="8"></div> 
+               <div class="chroma" data-id="9"></div> 
+               <div class="chroma" data-id="10"></div> 
+               <div class="chroma" data-id="11"></div> 
+            </div>
+        </div>
+        <div id="apiswf"></div>
+    <script type="text/javascript">
+    _baseURL = "{{api_base}}";
+    _DEBUG = {{debug}};
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+    <!--<script src="/static/js/playlist.js"></script>
+    <script src="/static/js/views.js"></script>
+    <script src="/static/js/app.js"></script>-->
+    <script src="/static/assets/rdio/token.js"></script>
+    <script type="text/javascript">
+    {% if setToken %}
+        playback_token = "{{token}}";
+        domain = "{{domain}}";
+    {% endif %}
+    </script>
+    <script src="/static/assets/rdio/rdio.js"></script>
+    <script>
+    (function(){
+        var beats, segs, beatNum = 0, flip = false, flipNum = 0, liteNum=0;
+        var imgs = ['zomby-releases-album-with-love-press-300.jpg',
+'zomby-with-love-video.jpg','zomby620-608x300.png',
+'zomby.jpg','withlove.jpg','withlove.jpg','zomby_800.jpg',
+'zomby.png'];
+        $(document).ready(function(){
+            Backbone.pubSub = _.extend({}, Backbone.Events);
+            Backbone.pubSub.on('rdioReady', function(){
+                $.get('/get-beats/', function(data){
+                    beats = data.beats;
+                    segs = data.segs;
+                    rdio_play('t32313249');
+                    console.log(data.beats[0].start);
+                    console.log(segs);
+                });
+            });
+            Backbone.pubSub.on('playStateChanged', function(state){
+                if(state === 1){
+                    var blah = beats[0].start;
+                    var sah = segs[0].start;
+                    for(var i=0;i<beats.length;i++){
+                        setTimeout(function(){
+                            var attr = 'background-position';
+                            if($($('.light').get(beatNum%16)).hasClass('lit')){
+                                $('.light').removeClass('lit');
+                            }
+                            $($('.light').get(beatNum%16)).addClass('lit');
+                            if(++beatNum % 4 === 0){
+                                $('.vizs').css(attr+'-y', ((Math.random()*100)-50)+'px');
+                                liteNum=(liteNum+parseInt(Math.random()*4))%4;
+                                $('.ab-inner').removeClass('lit');
+                                $('.ab-inner:not([data-id="'+liteNum+'"])').css('background-color', '#000');
+                                $('.ab-inner[data-id="'+liteNum+'"]').addClass('lit');
+                                $('.ab-inner[data-id="'+liteNum+'"]').css('background-color', '#c8e');
+                                flip = !flip;
+                                if(flipNum++ % 4 === 0 && beatNum > 30){
+                                    var img = imgs[parseInt(Math.random()*imgs.length)];
+                                    $('.vizs').css('background-image','url(static/img/'+img+')');
+                                }
+                            }else{
+                                _.each($('.ab-inner:not([data-id="'+liteNum+'"])'), function(it, key, list){
+                                    var col = parseInt(Math.random()*20);
+                                    $(it).css('background-color', 'rgb('+col+','+col+','+col+')');
+                                });
+                                var offs = Math.random()*20;
+                                if(beatNum % 2 === 0){
+                                    offs *= -1;
+                                }
+                                $('.vizs').css(attr+'-x', offs+'px');
+                            }
+                            
+                        }, blah*1000);
+                        blah += beats[i].duration;
+                    }
+                    console.log(segs);
+                    //for(var x=0;x<segs.length;x++){
+                    //    console.log(x);
+                    //    setTimeout(function(){
+                    //        var attr = 'background-position';
+                    //        var seg = segs[x];
+                    //        console.log(seg);
+                    //        var chrs = segs[x].pitches;
+                    //        for(var z=0;z<chrs.length;z++){
+                    //            $('.chroma[data-id="'+z+'"]').css('opacity', chrs[z]);
+                    //        }
+                    //    }, sah*1000);
+                    //    sah += segs[x].duration;
+                    //}
+                    _.each(segs, function(it, key,list){
+                        sah += it.duration;
+                        setTimeout(function(){
+                            var attr = 'background-position';
+                            console.log(it);
+                            var chrs = it.pitches;
+                            for(var z=0;z<chrs.length;z++){
+                                $('.chroma[data-id="'+z+'"]').css('opacity', chrs[z]);
+                            }
+                        }, sah*1000);
+                    });
+                }
+            });             
+            Backbone.pubSub.on('positionChanged', function(pos){
+               $('.time').animate({height:parseInt((pos/154)*100)+'%'});
+            });             
+            Backbone.pubSub.on('freqData', function(arrayAsStr){
+                var vals = arrayAsStr.split(",");
+                if(vals[1] > 1.0){
+                    $('.viz').css('background-color','rgb(88, 248,77)');
+                    $('.viz').css('-webkit-filter', '');
+                }else if(vals[5] > 0.5){
+                    $('.viz').css('background-color','orange');
+                    $('.viz').css('-webkit-filter', 'invert(100%)');
+                }else{
+                    $('.viz').css('background-color','#5E2D79');
+                    $('.viz').css('-webkit-filter', '');
+                }  
+                $('.vizs').css('background-size', vals[1]*80+'%');
+                for(var i=0;i<vals.length;i++){
+                    $('.viz[data-id="'+i+'"]').css('opacity', 0.65*parseFloat(vals[i]));
+                }
+            });
+        });
+    })();
+    </script>
+
+    </body>
+</html>
