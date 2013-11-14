@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>dynamoooo</title>
+        <title>Rdiolizer</title>
         <link rel="stylesheet" href="/static/assets/bootstrap/css/bootstrap.min.css"></link>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.min.css"></link>
         <link href='http://fonts.googleapis.com/css?family=Raleway+Dots' rel='stylesheet' type='text/css'>
@@ -342,7 +342,6 @@
             VZ.nxtSeg = _.sortedIndex(VZ.segStarts, VZ.time + (0.02*VZ.loopsST));
             VZ.nxtBar = _.sortedIndex(VZ.barStarts, VZ.time + (0.02*VZ.loopsST))-1;
             if(VZ.nxtBeat !== VZ.beat && VZ.loopsSB > 10 || VZ.loopsSB < 0){
-                
                 VZ.beat++;
                 VZ.doBeat();
             }
