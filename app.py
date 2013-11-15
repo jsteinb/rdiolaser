@@ -60,7 +60,7 @@ def index():
         else:
             token  = RDIO.getPlaybackToken(domain=CONF['DOMAIN'].split(':')[0])
         key = request.args.get('key', None)
-        i = None
+        i = 0
         if key is None:
             i = request.args.get('i', 0)
             key = TRACKS[int(i)]
@@ -70,6 +70,10 @@ def index():
             domain=CONF['DOMAIN'].split(':')[0])
     else:
         return redirect('/rdio-auth/')
+
+@app.route('/about/')
+def about():
+    return render_template('about.html')
 
 @app.route('/get-beats/<key>/')
 def get_beats(key):
